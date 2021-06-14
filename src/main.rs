@@ -16,6 +16,9 @@ pub struct Arguments {
 
     #[clap(short, long)]
     pub key: Option<String>,
+
+    #[clap(long)]
+    pub yaml: bool,
 }
 
 fn main() {
@@ -65,7 +68,11 @@ fn run(args: Arguments) -> Result<()> {
         })
     };
 
-    let output = serde_json::to_string_pretty(&dht_node).unwrap();
+    let output = if args.yaml {
+        serde_yaml::to_string(&dht_node).unwrap()
+    } else {
+        serde_json::to_string_pretty(&dht_node).unwrap()
+    };
     println!("{}", output);
 
     Ok(())
