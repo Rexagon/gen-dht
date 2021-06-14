@@ -1,0 +1,24 @@
+[package]
+name = "gen-dht"
+version = "0.1.0"
+authors = ["Ivan Kalinin <i.kalinin@dexpa.io>"]
+edition = "2018"
+
+[dependencies]
+anyhow = "1.0"
+base64 = "0.13"
+clap = "3.0.0-beta.2"
+ed25519-dalek = "1.0.1"
+external-ip = "4.1"
+hex = "0.4"
+rand = "0.7"
+serde = { version = "1.0.126", features = ["derive"] }
+serde_json = "1.0"
+serde_yaml = "0.8"
+thiserror = "1.0"
+tokio = { version = "1.6", features = ["sync"] }
+
+[dependencies.ton_api]
+git = "https://github.com/broxus/ton-labs-tl.git"
+branch = "original"
+features = ["ton_api"]
