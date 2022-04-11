@@ -1,12 +1,12 @@
 use std::net::{IpAddr, Ipv4Addr};
 
 use anyhow::Result;
-use clap::Clap;
+use clap::Parser;
 use ed25519_dalek::Signer;
 use rand::RngCore;
 use ton_api::{ton, IntoBoxed};
 
-#[derive(Clone, Debug, Clap)]
+#[derive(Clone, Debug, Parser)]
 pub struct Arguments {
     #[clap(short, long)]
     pub address: Option<Ipv4Addr>,
